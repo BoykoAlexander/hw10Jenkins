@@ -13,14 +13,18 @@ public class TestBase {
   @BeforeAll
   static void beforeAll() {
     SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    Configuration.browserSize = "1920x1080";
-    Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
+    Configuration.baseUrl = "https://demoqa.com";
+    Configuration.browserSize = "1920x1080";
+    String login = System.getProperty("login");
+    String password = System.getProperty("password");
+    String url = System.getProperty("url");
+    String remoteUrl = "https://" + login + ":" + password + "@" + url;
+    Configuration.remote = remoteUrl;
     DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setCapability("enableVNC", true);
     capabilities.setCapability("enableVideo", true);
     Configuration.browserCapabilities = capabilities;
-
   }
 
   @AfterEach
