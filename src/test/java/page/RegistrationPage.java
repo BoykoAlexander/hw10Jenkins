@@ -82,12 +82,12 @@ public class RegistrationPage {
     return this;
   }
 
-  @Step("Загрузка файла")
-  public RegistrationPage uploadFileFromForm(String fileName) {
-    uploadFile.uploadFromClasspath(fileName);
-
-    return this;
-  }
+//  @Step("Загрузка файла")
+//  public RegistrationPage uploadFileFromForm(String fileName) {
+//    uploadFile.uploadFromClasspath(fileName);
+//
+//    return this;
+//  }
 
   @Step("Ввод текущего адреса")
   public RegistrationPage inputCurrentAdress(String currentAddress) {
