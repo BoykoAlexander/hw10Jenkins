@@ -1,23 +1,22 @@
 package test;
 
-import components.TestBase;
 import org.junit.jupiter.api.Test;
 import page.RegistrationPage;
 
 public class StudentRegistrationFormPageObjectTest extends TestBase {
-  page.RegistrationPage RegistrationPage = new RegistrationPage();
+  RegistrationPage registrationPage = new RegistrationPage();
 
   @Test
   void fillFormTest() {
     //filling out the form
-    RegistrationPage.openPage()
+    registrationPage.openPage()
             .inputFirstName("Alex")
             .inputLastName("Boyko")
             .inputEmeil("boyko@yandex.ru")
             .putGender("Male") //Female | Male | Other
             .inputPhoneNumber("9999999999");
-    RegistrationPage.calendarComponent.setDate();
-    RegistrationPage.inputSubjects("English")
+    registrationPage.calendarComponent.setDate();
+    registrationPage.inputSubjects("English")
             .selectHobbies("Music")
             .uploadFileFromForm("driver.jpg")
             .inputCurrentAdress("South Park")
@@ -25,9 +24,8 @@ public class StudentRegistrationFormPageObjectTest extends TestBase {
             .selectCityInCheckbox("Merrut")
             .clickButtonSubmit();
 
-
     //Check assertion
-    RegistrationPage.checkResultTable("Student Name", "Alex Boyko")
+    registrationPage.checkResultTable("Student Name", "Alex Boyko")
             .checkResultTable("Student Email", "boyko@yandex.ru")
             .checkResultTable("Gender", "Male")
             .checkResultTable("Mobile", "9999999999")
@@ -37,7 +35,5 @@ public class StudentRegistrationFormPageObjectTest extends TestBase {
             .checkResultTable("Picture", "driver.jpg")
             .checkResultTable("Address", "South Park")
             .checkResultTable("State and City", "Uttar Pradesh Merrut");
-
-
   }
 }
