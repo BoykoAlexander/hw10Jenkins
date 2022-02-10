@@ -7,10 +7,11 @@ java  \
 -jar ./notifications/allure-notifications-3.1.2.jar
 
 
+########### REMOTE TELEGRAM
 java  \
 "-DprojectName=${PROJECT_NAME}" \
 "-Denv=${ENVIRONMENT}" \
 "-DreportLink=${BUILD_URL}" \
-"-Dcomm=${COMMENT}} \
-"-Dconfig.file=${PATH_TO_FILE}" \
--jar allure-notifications-3.1.2.jar
+"-Dcomm=${COMMENT}" \
+"-Dconfig.file=./notifications/telegram_config.json" \
+-jar ./notifications/allure-notifications-3.1.2.jar
